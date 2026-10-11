@@ -44,12 +44,14 @@ export async function getWorkouts(): Promise<Workout[]> {
   const response = await fetch(WORKOUTS_API_URL, { cache: "force-cache" });
 
   if (!response.ok) {
-    throw new Error(`Workout API request failed with status ${response.status}.`);
+    throw new Error(
+      `Workout API request failed with status ${response.status}.`,
+    );
   }
 
   const data: unknown = await response.json();
 
-  if (!Array.isArray(data) || !data.every(isWorkout)) {
+  if (!Array.isArray(data) || data.length === 0 || !data.every(isWorkout)) {
     throw new Error("Workout API returned data in an unexpected format.");
   }
 
