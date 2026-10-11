@@ -52,7 +52,7 @@ function readStoredState(value: string | null): PlanState {
     !isIdList(plan) ||
     !isIdList(saved) ||
     !isIdList(completed) ||
-    plan.length > 5
+    plan.filter((id) => !completed.includes(id)).length > 5
   ) {
     throw new Error("Saved workout data is invalid.");
   }
@@ -105,7 +105,10 @@ export function PlanProvider({ children }: { children: React.ReactNode }) {
         setToast("This lift is already in today's plan.");
         return current;
       }
-      if (current.plan.length >= 5) {
+      if (
+        current.plan.filter((item) => !current.completed.includes(item))
+          .length >= 5
+      ) {
         setToast("Your plan is full. Finish or remove a lift first.");
         return current;
       }

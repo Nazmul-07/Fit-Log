@@ -44,10 +44,7 @@ export function SiteHeader() {
           <Link className="count-badge count-badge-plan" href="/my-plan">
             Plan <span>{plan.length}</span>
           </Link>
-          <Link
-            className="count-badge count-badge-saved"
-            href="/my-plan?tab=saved"
-          >
+          <Link className="count-badge count-badge-saved" href="/my-plan">
             Saved <span>{saved.length}</span>
           </Link>
         </nav>
