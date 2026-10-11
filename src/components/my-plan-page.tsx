@@ -92,7 +92,7 @@ export function MyPlanPage({ workouts }: { workouts: Workout[] }) {
             <span className="metric-label">Exercises</span>
             <strong>
               {totals.exercises}
-              <small> lifts</small>
+              <small>{totals.exercises === 1 ? " lift" : " lifts"}</small>
             </strong>
           </article>
           <article className="metric-card">
