@@ -2,11 +2,48 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
 import { Icon } from "@/components/icon";
 import { usePlan } from "@/components/plan-provider";
 
-export function SiteHeader() {
+function PrimaryNavigation() {
   const pathname = usePathname();
+  const workoutActive = pathname === "/" || pathname.startsWith("/workouts/");
+
+  return (
+    <nav className="primary-nav" aria-label="Main navigation">
+      <Link
+        aria-current={workoutActive ? "page" : undefined}
+        className={workoutActive ? "nav-link is-active" : "nav-link"}
+        href="/#library"
+      >
+        Workout
+      </Link>
+      <Link
+        aria-current={pathname === "/my-plan" ? "page" : undefined}
+        className={pathname === "/my-plan" ? "nav-link is-active" : "nav-link"}
+        href="/my-plan"
+      >
+        My Plan
+      </Link>
+    </nav>
+  );
+}
+
+function NavigationFallback() {
+  return (
+    <nav className="primary-nav" aria-label="Main navigation">
+      <Link className="nav-link" href="/#library">
+        Workout
+      </Link>
+      <Link className="nav-link" href="/my-plan">
+        My Plan
+      </Link>
+    </nav>
+  );
+}
+
+export function SiteHeader() {
   const { plan, saved } = usePlan();
 
   return (
@@ -21,24 +58,9 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="primary-nav" aria-label="Main navigation">
-          <Link
-            aria-current={pathname === "/" ? "page" : undefined}
-            className={pathname === "/" ? "nav-link is-active" : "nav-link"}
-            href="/#library"
-          >
-            Workout
-          </Link>
-          <Link
-            aria-current={pathname === "/my-plan" ? "page" : undefined}
-            className={
-              pathname === "/my-plan" ? "nav-link is-active" : "nav-link"
-            }
-            href="/my-plan"
-          >
-            My Plan
-          </Link>
-        </nav>
+        <Suspense fallback={<NavigationFallback />}>
+          <PrimaryNavigation />
+        </Suspense>
 
         <nav className="header-badges" aria-label="Plan and saved lift counts">
           <Link className="count-badge count-badge-plan" href="/my-plan">
