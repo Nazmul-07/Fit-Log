@@ -210,6 +210,26 @@ button {
   font-size: 13px;
 }
 
+.not-found-screen h1 {
+  font-size: clamp(112px, 24vw, 240px);
+  letter-spacing: -0.075em;
+}
+
+.not-found-screen h1 span {
+  color: var(--accent);
+}
+
+.not-found-screen p,
+.error-screen p {
+  max-width: 370px;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.error-screen h1 {
+  font-size: clamp(40px, 8vw, 78px);
+}
+
 .loading-spinner {
   width: 34px;
   height: 34px;
