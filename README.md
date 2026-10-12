@@ -1,46 +1,138 @@
-# FitLog — Train with intent
+# ⚡ FitLog — Workout & Fitness Tracker
 
-FitLog is a focused workout library and training log. Browse 12 lifts, learn their
-equipment and instructions, and build a daily plan without losing track of your
-saved or completed exercises.
+A modern and responsive fitness application built with **Next.js** and **TypeScript**. FitLog helps users explore workouts, manage their workout plans, save favorite exercises, and track their fitness activities through a clean and user-friendly interface.
 
-## Built with
+## 🌐 Live Demo
 
-- Next.js 16 App Router and React 19
-- TypeScript
-- Tailwind CSS 4 utilities for responsive styling
-- FitLog exercise API: `https://openapi.programming-hero.com/api/fitlog`
-- Browser `localStorage` for the plan, saved lifts, and completions
+🔗 **Live Website:** [Add Your Live Website URL Here](#)
 
-## Features
+## 📸 Project Overview
 
-1. Responsive workout library with exercise images, muscle-group tags, and stats.
-2. Search by exercise or muscle group; sort workouts by duration, calories, or rating.
-3. Dedicated workout pages with equipment, difficulty, training specs, and instructions.
-4. Add up to five active lifts at a time, mark lifts complete, then load more.
-5. Save lifts for later and manage both collections from the My Plan page.
-6. Live plan totals for exercise count, training time, and estimated calories.
-7. Toast feedback, persistent browser storage, and a custom not-found page.
+FitLog is designed to make workout planning simple and organized. Users can browse different exercises, view workout details, create a personal workout plan, and save workouts for later.
 
-## Run locally
+## ✨ Features
+
+- **🏋️ Browse Workouts:** Explore a collection of workouts with useful information.
+- **🔍 Workout Details:** View exercise descriptions, instructions, muscle groups, equipment, difficulty levels, and other details.
+- **➕ Create Workout Plans:** Add workouts to a personal plan for easy access.
+- **🔖 Save for Later:** Save favorite workouts and access them whenever needed.
+- **✅ Mark Workouts as Done:** Mark planned workouts as completed.
+- **🗑️ Manage Your Plan:** Remove workouts from your plan or saved list.
+- **↕️ Sort Workouts:** Organize workouts based on duration.
+- **📊 Track Workout Information:** View workout duration and estimated calories burned.
+- **🔔 Toast Notifications:** Get feedback when adding, saving, completing, or removing workouts.
+- **📱 Responsive Design:** Enjoy a user-friendly experience on mobile, tablet, and desktop.
+- **🚫 Custom 404 Page:** Display a custom error page for unavailable routes.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | React framework and application routing |
+| React | Building reusable UI components |
+| TypeScript | Type safety and maintainable code |
+| Tailwind CSS | Responsive styling and UI design |
+| Lucide React | Icons |
+| React Toastify | Toast notifications |
+| Next.js Image | Image optimization |
+| REST API | Fetching workout data |
+
+## 📂 Project Structure
+
+```text
+fit-log/
+├── app/
+│   ├── workouts/
+│   │   └── [id]/
+│   │       └── page.tsx
+│   ├── my-plan/
+│   │   └── page.tsx
+│   ├── not-found.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── Footer.tsx
+│   └── WorkoutActions.tsx
+├── context/
+│   └── Fit-LogContext.tsx
+├── app/types/
+│   └── workout.data.ts
+├── public/
+├── next.config.ts
+├── package.json
+└── README.md
+```
+
+## 🚀 Getting Started
+
+Follow these steps to run FitLog locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
+cd fit-log
+```
+
+### 3. Install Dependencies
 
 ```bash
 npm install
+```
+
+### 4. Run the Development Server
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Workout data is fetched from
-the FitLog API; an API or network error is reported rather than silently replaced
-with placeholder exercises. Your plan and saved lifts are stored in this
-browser, so they persist across reloads on the same device.
+### 5. Open in Your Browser
 
-## Production
+Visit [http://localhost:3000](http://localhost:3000).
 
-```bash
-npm run build
-npm run start
-```
+## 🔗 API Information
 
-Deploy as a Next.js Node.js application so the App Router can serve and reload
-deep links such as `/my-plan` and `/workouts/1`. The workout API and exercise
-image host must be reachable from the deployment and the visitor's browser.
+FitLog fetches workout data from the following API:
+
+**API Endpoint:**  
+https://openapi.programming-hero.com/api/fitlog
+
+The API provides workout information such as names, images, muscle groups, equipment, difficulty, duration, calories burned, ratings, and instructions.
+
+## 🎯 Learning Objectives
+
+This project helps demonstrate practical experience with:
+
+- Next.js App Router and dynamic routing
+- Server Components and Client Components
+- Asynchronous data fetching
+- TypeScript interfaces and type safety
+- React Context API for shared state
+- Responsive UI development with Tailwind CSS
+- Reusable components and conditional rendering
+- Loading, error, and not-found handling
+
+## 🔮 Future Improvements
+
+- User authentication and personal accounts
+- Persistent workout plans using a database
+- Workout history and progress tracking
+- Search and filtering by muscle group or difficulty
+- Charts for weekly activity and fitness progress
+
+## 👨‍💻 Author
+
+**Nazmul Hosen**
+
+- GitHub: [@nazmul-07](https://github.com/nazmul-07)
+
+---
+
+⭐ If you find this project interesting, consider giving it a star!
+
+**FitLog — Keep Moving, Keep Improving.**

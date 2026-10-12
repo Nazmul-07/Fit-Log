@@ -1,10 +1,10 @@
-
 "use client";
 
 import { useContext } from "react";
 import { Bookmark, CheckCircle2 } from "lucide-react";
 import { FitLogContext } from "@/context/Fit-LogContext";
 import type { Workout } from "@/app/types/workout.data";
+import { Bounce, toast } from "react-toastify";
 
 interface WorkoutActionsProps {
   workout: Workout;
@@ -17,38 +17,57 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
     throw new Error("WorkoutActions must be used inside FitLogProvider");
   }
 
-  const {
-    planCount,
-    savedCount,
-    setPlanCount,
-    setSavedCount,
-  } = context;
+  const { planCount, savedCount, setPlanCount, setSavedCount } = context;
 
   const isPlanned = planCount.some(
-    (item) => String(item.id) === String(workout.id)
+    (item) => String(item.id) === String(workout.id),
   );
 
   const isSaved = savedCount.some(
-    (item) => String(item.id) === String(workout.id)
+    (item) => String(item.id) === String(workout.id),
   );
 
   const handlePlanBtn = () => {
     if (isPlanned) return;
 
     setPlanCount([...planCount, workout]);
+    toast.success(`${workout.name} added today's plan`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   const handleSaveBtn = () => {
     if (isSaved) {
       setSavedCount(
-        savedCount.filter(
-          (item) => String(item.id) !== String(workout.id)
-        )
+        savedCount.filter((item) => String(item.id) !== String(workout.id)),
       );
+
+      toast.info(`${workout.name} removed from saved workouts`, {
+        position: "top-right",
+        autoClose: 3000,
+        theme: "light",
+        transition: Bounce,
+      });
+
       return;
     }
 
     setSavedCount([...savedCount, workout]);
+
+    toast.success(`${workout.name} saved for later!`, {
+      position: "top-right",
+      autoClose: 3000,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   return (
@@ -68,10 +87,7 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
         onClick={handleSaveBtn}
         className="flex items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-3 font-semibold text-white transition hover:border-lime-400 hover:text-lime-400"
       >
-        <Bookmark
-          size={19}
-          fill={isSaved ? "currentColor" : "none"}
-        />
+        <Bookmark size={19} fill={isSaved ? "currentColor" : "none"} />
         {isSaved ? "Saved (Remove)" : "Save for Later"}
       </button>
     </div>

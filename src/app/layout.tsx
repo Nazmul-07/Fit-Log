@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import FitLogProvider from "@/context/Fit-LogContext";
 import Hero from "@/components/Hero";
+import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -19,10 +21,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-screen bg-[#11120f] text-[#f4f3ed] antialiased">
 
         <FitLogProvider>
+      <ToastContainer />
         <Navbar/>
         <main>{children}</main>
+        <Footer></Footer>
         </FitLogProvider>
-
       </body>
     </html>
   );
