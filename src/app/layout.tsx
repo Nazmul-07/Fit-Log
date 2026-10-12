@@ -20,7 +20,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <FitLogProvider>
         <Navbar/>
-        <Hero/>
         <main>{children}</main>
         </FitLogProvider>
 

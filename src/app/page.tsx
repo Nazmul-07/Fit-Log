@@ -1,11 +1,11 @@
-import React from 'react';
+import Hero from "@/components/Hero";
+import Library from "@/components/Library";
 
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      
-    </div>
+    <main>
+      <Hero />
+      <Library />
+    </main>
   );
-};
-
-export default page;
+}
