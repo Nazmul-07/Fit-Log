@@ -1,7 +1,11 @@
-import { HomePage } from "@/components/home-page";
-import { getWorkouts } from "@/lib/workouts";
+import React from 'react';
 
-export default async function Home() {
-  const workouts = await getWorkouts();
-  return <HomePage workouts={workouts} />;
-}
+const page = () => {
+  return (
+    <div>
+      
+    </div>
+  );
+};
+
+export default page;

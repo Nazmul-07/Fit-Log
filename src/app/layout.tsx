@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { SiteShell } from "@/components/site-shell";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import FitLogProvider from "@/context/Fit-LogContext";
+import Hero from "@/components/Hero";
 
 export const metadata: Metadata = {
   title: {
@@ -14,8 +16,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body>
-        <SiteShell>{children}</SiteShell>
+      <body className="min-h-screen bg-[#11120f] text-[#f4f3ed] antialiased">
+
+        <FitLogProvider>
+        <Navbar/>
+        <Hero/>
+        <main>{children}</main>
+        </FitLogProvider>
+
       </body>
     </html>
   );

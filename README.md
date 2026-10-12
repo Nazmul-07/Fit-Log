@@ -8,7 +8,7 @@ saved or completed exercises.
 
 - Next.js 16 App Router and React 19
 - TypeScript
-- Tailwind CSS 4 and responsive custom CSS
+- Tailwind CSS 4 utilities for responsive styling
 - FitLog exercise API: `https://openapi.programming-hero.com/api/fitlog`
 - Browser `localStorage` for the plan, saved lifts, and completions
 
