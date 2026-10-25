@@ -4,7 +4,7 @@ A modern and responsive fitness application built with **Next.js** and **TypeScr
 
 ## 🌐 Live Demo
 
-🔗 **Live Website:** [(http://fit-log-dun-six.vercel.app/)](#)
+🔗 **Live Website:** http://fit-log-dun-six.vercel.app/
 
 ## 📸 Project Overview
 
